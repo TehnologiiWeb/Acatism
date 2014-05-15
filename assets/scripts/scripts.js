@@ -13,21 +13,21 @@ function initAll()
 	$("#tipUser").change(function(){
 		switch($("#tipUser option:selected").text())
 		{
-			case "student": $("#inAnul").show();
-							$("#anStudent").show();
-							$("#grupa").show();
-							$("#signUpGrupa").show();
-							$("#nrMatricol").show();
-							$("#signUpCod").show();
+			case "student": $("#inAnul").show(1000);
+							$("#anStudent").show(1000);
+							$("#grupa").show(1000);
+							$("#signUpGrupa").show(1000);
+							$("#nrMatricol").show(1000);
+							$("#signUpCod").show(1000);
 							$("#anMasterand").hide();
 							$("#nrMatricol").text("Nr. matricol ");
 							break;
-			case "masterand": $("#inAnul").show();
-							$("#anMasterand").show();
-							$("#grupa").show();
-							$("#signUpGrupa").show();
-							$("#nrMatricol").show();
-							$("#signUpCod").show();
+			case "masterand": $("#inAnul").show(1000);
+							$("#anMasterand").show(1000);
+							$("#grupa").show(1000);
+							$("#signUpGrupa").show(1000);
+							$("#nrMatricol").show(1000);
+							$("#signUpCod").show(1000);
 							$("#anStudent").hide();
 							$("#nrMatricol").text("Nr. matricol ");
 							break;
@@ -37,7 +37,7 @@ function initAll()
 							$("#anMasterand").hide();
 							$("#grupa").hide();
 							$("#signUpGrupa").hide();
-							$("#signUpCod").show();
+							$("#signUpCod").show(1000);
 							break;
 		}
 	});
