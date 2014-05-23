@@ -13,8 +13,8 @@
     <article>
         <h3>Profilul meu</h3>
 
-        <div id="milestones">
-            <h4 class="summaryTitle">
+        <section id="milestones">
+            <h4 class="summaryTitle" >
                 De realizat
             </h4>
             <nav class="todoList">
@@ -24,9 +24,9 @@
                 </ul>
             </nav>
 
-        </div>
+        </section>
 
-        <div id="recentActivity">
+        <section id="recentActivity">
             <h4 class="summaryTitle">
                 Activitate recenta
             </h4>
@@ -36,25 +36,25 @@
                     <li>File Y updated on GitHub</li>
                 </ul>
             </nav>
-        </div>
+        </section>
 
-        <div id="projectInfo">
+        <section id="projectInfo">
             <h4 class="summaryTitle">
                 Detalii proiect in lucru
             </h4>
             <p class="description">
                 --Descriere proiect--
             </p>
-        </div>
+        </section>
 
-        <div id="feedbackProf">
+        <section id="feedbackProf">
             <h4 class="summaryTitle">
                 Feedback de la profesor
             </h4>
             <p class="message">
                 sadddddddd
             </p>
-        </div>
+        </section>
     </article>
 
     <!--jquery and javascript-->

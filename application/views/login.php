@@ -6,6 +6,7 @@
 		<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets\css\login.css'); ?>">
 	<body>
 		<div id="content">
+			<script>document.getElementById("content").style.height=screen.height+"px"; </script>
 			<header>
 
 			</header>
