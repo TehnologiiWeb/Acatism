@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
 	<head>
 		<title>Acatism</title>
@@ -19,6 +18,18 @@
 				</div>
 				<img class="line" src="<?php echo base_url('assets\images\line.png'); ?>">
 			</div>
+			<?php
+			echo "<table><tr><th>RowName</th></tr>";
+			foreach($rows as $r)
+			{
+			echo "<tr>";
+			echo "<td>" . $r['titlu'] . "</td>";
+			echo "<td>" . $r['descriere'] . "</td>";
+			echo "<td>" . $r['nrstud'] . "</td>";
+			echo "</tr>";
+			}
+			echo "</table>"
+			?>
 			<div id="cadru">		
 				<nav id="meniu">
 					<ul id="butoanee">
