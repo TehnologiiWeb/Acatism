@@ -21,7 +21,9 @@
 					$u = array(
 						'id' => $user['id'],
 						'email' => $user['email'],
-						'type' => $user['typeID'] );
+						'type' => $user['typeID'],
+						'githubName' => $user['github']);
+
 					return $u;
 				}
 				else 
