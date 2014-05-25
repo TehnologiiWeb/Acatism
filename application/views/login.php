@@ -6,6 +6,7 @@
 		<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets\css\login.css'); ?>">
 	<body>
 		<div id="content">
+			<script>document.getElementById("content").style.height=screen.height+"px"; </script>
 			<header>
 
 			</header>
@@ -31,9 +32,6 @@
 						<br>
 						<label class="logLabels">Parola </label>
 						<input type="password" name="signUpPassword" id="signUpPassword" class="logInputs" required>
-						<br>
-						<label class="logLabels">Github Name </label>
-						<input type="text" name="signUpGithub" id="signUpGithub" class="logInputs" required>
 						<br>
 						<label class="logLabels">Sunt </label>
 						<select id="tipUser" name="tipUser" class="selects" required>

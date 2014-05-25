@@ -1,8 +1,10 @@
+<!DOCTYPE html>
 <html>
 	<head>
 		<title>Acatism</title>
 		<link rel="shortcut icon" href="<?php echo base_url('assets\images\title.png'); ?>"/>
 		<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets\css\static.css'); ?>"/>
+		<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets\css\proiecteleMeleProf.css'); ?>"/>
 	<body>
 		<div id="content">
 			<script> document.getElementById("content").style.height=screen.height+"px";</script>
@@ -18,18 +20,6 @@
 				</div>
 				<img class="line" src="<?php echo base_url('assets\images\line.png'); ?>">
 			</div>
-			<?php
-			echo "<table><tr><th>RowName</th></tr>";
-			foreach($rows as $r)
-			{
-			echo "<tr>";
-			echo "<td>" . $r['titlu'] . "</td>";
-			echo "<td>" . $r['descriere'] . "</td>";
-			echo "<td>" . $r['nrstud'] . "</td>";
-			echo "</tr>";
-			}
-			echo "</table>"
-			?>
 			<div id="cadru">		
 				<nav id="meniu">
 					<ul id="butoanee">
@@ -40,8 +30,21 @@
 					<img src="<?php echo base_url('assets\images\colt.png'); ?>" style="width: 100%;">
 				</nav>
 				<article id="continut">
-					<!-- AICI DIV-UL CENTRAL-->
+					
 				</article>
+				<aside>
+					<form name="addTema" action="" method="POST">
+						<input type="text" name="nume" id="nume" placeholder=" Numele temei" required>
+						<input type="submit" id="adauga" value="Adauga">
+						<input type="radio" id="licenta" class="radio" value="licenta" name="tip"><label class="radio">Licenta</label>
+						<br>
+						<input type="radio" id="master" class="radio" value="master" name="tip"><label class="radio">Master</label>
+					</form>
+					<textarea  name="descriere" id="descriere" form="addTema" placeholder=" Descrierea temei.."></textarea>
+
+					<label id="labell"><b>Adaugare tema noua</b></label>
+				</aside>
+				<img id="sageata" src="<?php echo base_url('assets\images\sageata.jpg'); ?>"/>
 				<div id="subSlideMeniu"></div> 
 				<div id="slideMeniu">
 					<div class="divMeniu">

@@ -89,7 +89,7 @@
                     <a class="slideButton"><b>Editare cont</b></a>
                     </div>
                     <div class="divMeniu">
-                    <a class="slideButton" href="<?php echo base_url('delogare'); ?>"><b>Delogare</b></a>
+                    <a class="slideButton"><b>Delogare</b></a>
                     </div>
                 </div>
             </div>

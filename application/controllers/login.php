@@ -22,11 +22,7 @@
 					{
 						$this->session->set_userdata('user', $user);
 	
-						if ($user['type'] == 0)
-							redirect(base_url('myProfileStudent'));
-						elseif ($user['type'] == 1) {
-							redirect(base_url('myProfileProfesor'));
-						}
+						redirect(base_url('myProfile'));
 					}
 					else {
 						$this->load->view('login');
@@ -39,10 +35,7 @@
 			}
 			else
 			{
-				if ($user['type'] == 0)
-					redirect(base_url('myProfileStudent'));
-				elseif ($user['type'] == 1)
-					redirect(base_url('myProfileProfesor'));
+				redirect(base_url('myProfile'));
 			}
 		}
 	}

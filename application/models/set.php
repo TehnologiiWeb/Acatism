@@ -42,8 +42,7 @@
 							$utilizator = array(
 								'email' => $data['email'],
 								'password' => $data['pass'],
-								'typeID' => $data['tipUser'],
-								'github' => $data['githubName']);
+								'typeID' => $data['tipUser'] );
 							//echo $utilizator['email'];
 							$valRet = $this->db->insert("users", $utilizator);
 
@@ -102,8 +101,7 @@
 							$utilizator = array(
 								'email' => $data['email'],
 								'password' => $data['pass'],
-								'typeID' => $data['tipUser'],
-								'github' => $data['githubName'] );
+								'typeID' => $data['tipUser'] );
 							//echo $utilizator['email'];
 							$valRet = $this->db->insert("users", $utilizator);
 

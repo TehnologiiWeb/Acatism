@@ -1,0 +1,78 @@
+.teme
+{
+
+}
+
+aside
+{
+	width: 25%;
+	height: 64%;
+	position: absolute;
+	right: 7px;
+	top: 36%;
+	background-color: rgb(245,245,245);
+	border: 1px dashed grey;
+	border-radius: 5px;
+}
+
+#nume
+{
+	width: 65%;
+	height: 20px;
+	margin-left: 5%;
+	margin-top: 5%;
+}
+
+#descriere
+{
+	width: 90%;
+	height: 75%;
+	margin-left: 5%;
+	margin-top: 3%;
+	color: rgb(169,169,169);
+	z-index: 1;
+	position: absolute;
+}
+
+#adauga
+{
+	height: 25px;
+	width: 23%;
+	background-color: rgb(13, 81, 119);
+	color: rgb(167, 208, 245);
+	border:0;
+	border-radius: 3px;
+}
+
+#sageata
+{
+
+	width: 7%;
+	height: 6%;
+	position: absolute;
+	right: 7px;
+	top: 92%;
+	z-index: 0;
+}
+
+#labell
+{
+	color: rgb(159,137,113);
+	margin-left: 28%;
+	top: 92%;
+	position: absolute;
+}
+
+#radios
+{
+	position: absolute;
+	margin-left: 5%;
+	top: 93%;
+	width: 10%;
+	height: 5%;
+}
+
+.radio
+{
+	color:rgb(13, 81, 119);
+}

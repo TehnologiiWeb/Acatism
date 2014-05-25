@@ -8,7 +8,6 @@
 			$email = $this->input->post('signUpEmail');
 			$pass = $this->input->post('signUpPassword');
 			$tipUser = $this->input->post('tipUser');
-			$githubName = $this->input->post('signUpGithub');
 
 			if ($tipUser == "Student") 
 			{
@@ -20,7 +19,6 @@
 					'email' => $email,
 					'pass' => md5($pass),
 					'tipUser' => 0,
-					'githubName' => $githubName,
 					'an' => $an,
 					'grupa' => $grupa,
 					'nrMat' => $nrMat,
@@ -49,7 +47,6 @@
 					'email' => $email,
 					'pass' => md5($pass),
 					'tipUser' => 0,
-					'githubName' => $githubName,
 					'an' => $an,
 					'grupa' => $grupa,
 					'nrMat' => $nrMat,
@@ -76,7 +73,6 @@
 					'email' => $email,
 					'pass' => md5($pass),
 					'tipUser' => 1,
-					'githubName' => $githubName,
 					'nrMat' => $nrMat );	
 					
 				//se salveaza in baza de date informatiile
