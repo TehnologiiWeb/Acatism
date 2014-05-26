@@ -1,4 +1,4 @@
-body, h1, li, ol, p 
+body, h1, ol,
 {
 	margin: 0px;
 	background-color: white;
@@ -38,6 +38,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', end
 */
 }
 
+#continut{
+	float: right;
+	width: 82%;
+}
+
 #username
 {
 	float:right;
@@ -71,6 +76,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', end
 	float: left;
 	clear: both;
 	background-color: rgb(167, 208, 245);
+	height: 100%;
 }
 
 #butoanee
