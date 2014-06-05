@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html>
-<!-- href="<?php echo base_url('assets\css\myProfileStudent.less'); ?>" -->
-
 <head>
     <title>Acatism - Lista teme</title>
     <!--CSS-->
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets\css\myProfileStudent.css'); ?>" />
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets\css\static.css'); ?>" />
-      <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets\css\listaTemeStud.css'); ?>" />
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets\css\listaTemeStud.css'); ?>" />
 </head>
 
 <body>
@@ -37,11 +35,15 @@
                     <img src="<?php echo base_url('assets\images\colt.png'); ?>" style="width: 100%;">
                 </nav>
 
-                <input name="jquery" 
-                       type="text"
-                       id="searchInput">
 
                 <article id="continut">
+
+
+                <div id="container">
+                    <input type="text" name="search" id="search" />
+                    <ul id="finalResult"></ul>
+                </div>
+
                     <legend id="title">
                         Lista temelor propuse
                     </legend>
@@ -184,6 +186,7 @@
     <script type="text/javascript" src="<?php echo base_url('assets\scripts\myProfileStudent.js'); ?>"></script>
     <script type="text/javascript" src="<?php echo base_url('assets\scripts\listaTemeStud.js'); ?>"></script>
     <script type="text/javascript" src="<?php echo base_url('assets\scripts\static.js'); ?>"></script>
+    <script type="text/javascript" src="<?php echo base_url('assets\scripts\jquery.watermark.js'); ?>"></script> 
 </body>
 
 </html>

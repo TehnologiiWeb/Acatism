@@ -74,41 +74,14 @@
 			return $data;
 		}
 
-		public function getSearch($query, $post_per_page, $current_page){
-
-			$offset = ($current_page-1) * $post_per_page;
-
-	        if($current_page == 1) {
-	            $offset = 0;
-	        }
-
-	        $sql = "SELECT * FROM temepropuse WHERE MATCH ( titlu, description ) AGAINST (?)";
-			$query = $this->db->query($sql, array($query, $offset, $post_per_page));
-
-			return $query->result_array();
-
-		}
-
-		function get_numrows($query) {
-
-	        $rows=0;
-
-	        $sql = "SELECT * FROM wp_posts WHERE  MATCH ( post_title, post_content ) AGAINST (?)  AND post_status='publish'";
-	        $query = $this->db->query($sql, array($query));
-
-	        $rows=$query->num_rows();
-
-	        return $rows;
-   		}
-
-   		function cleanHTML($input, $ending='...') {
-
-	        $output = strip_tags($input);
-
-	        $output = substr($output, 0, 100);
-	        $output .= $ending;
-
-	        return $output;
-    	}
+		public function getSearch($search)
+		{
+			$this->db->select("titlu,description");
+			$whereCondition = array('titlu' =>$search);
+			$this->db->where($whereCondition);
+			$this->db->from('temepropuse');
+			$query = $this->db->get();
+			return $query->result();
+	}
 	}
 ?>
