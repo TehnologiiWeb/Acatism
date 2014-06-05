@@ -13,4 +13,20 @@
     }    
 
     $('#tableList').jExpand();
+
+
+    $('#searchInput').keyup(function(){
+        var searchInput = $(this).val();
+        var dataString = 'keyword' + searchInput;
+
+        if (searchInput.length > 3){
+            // $.ajax({
+            //     type: "GET",
+            //     url
+            // })
+        }
+        
+    })
+
+
 })(jQuery); 

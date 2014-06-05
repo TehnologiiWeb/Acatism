@@ -36,6 +36,11 @@
                     </ul>
                     <img src="<?php echo base_url('assets\images\colt.png'); ?>" style="width: 100%;">
                 </nav>
+
+                <input name="jquery" 
+                       type="text"
+                       id="searchInput">
+
                 <article id="continut">
                     <legend id="title">
                         Lista temelor propuse
