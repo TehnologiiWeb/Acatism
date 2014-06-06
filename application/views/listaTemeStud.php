@@ -6,6 +6,7 @@
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets\css\myProfileStudent.css'); ?>" />
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets\css\static.css'); ?>" />
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets\css\listaTemeStud.css'); ?>" />
+
 </head>
 
 <body>
@@ -38,11 +39,13 @@
 
                 <article id="continut">
 
-
-                <div id="container">
-                    <input type="text" name="search" id="search" />
-                    <ul id="finalResult"></ul>
-                </div>
+                    
+                    <div id="container">
+                        <form method="post" action="<?php echo base_url('listaTemeStud')?>">
+                            <input type="text" name="search" id="search" />
+                            <ul id="finalResult"></ul>
+                        </form>
+                    </div>
 
                     <legend id="title">
                         Lista temelor propuse
@@ -187,6 +190,7 @@
     <script type="text/javascript" src="<?php echo base_url('assets\scripts\listaTemeStud.js'); ?>"></script>
     <script type="text/javascript" src="<?php echo base_url('assets\scripts\static.js'); ?>"></script>
     <script type="text/javascript" src="<?php echo base_url('assets\scripts\jquery.watermark.js'); ?>"></script> 
+    <script type="text/javascript" src="http://www.technicalkeeda.com/js/javascripts/plugin/json2.js"></script>
 </body>
 
 </html>

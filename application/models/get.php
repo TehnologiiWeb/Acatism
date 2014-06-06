@@ -77,10 +77,15 @@
 		public function getSearch($search)
 		{
 			$this->db->select("titlu,description");
+			
 			$whereCondition = array('titlu' =>$search);
+
 			$this->db->where($whereCondition);
+
 			$this->db->from('temepropuse');
+
 			$query = $this->db->get();
+
 			return $query->result();
 	}
 	}
