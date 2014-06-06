@@ -20,11 +20,9 @@ $(document).ready(function () {
             type: 'post',
             url: 'http://localhost/Acatism/listaTemeStud',
             cache: false,     
-            data:'search='+$(this).val(),
+            data: { 'search' : $(this).val(), isAjax: 1 },
             success: function(response){
                 $('#finalResult').html('');
-
-                console.log(response );
 
                 var obj = $.parseJSON(response);
 

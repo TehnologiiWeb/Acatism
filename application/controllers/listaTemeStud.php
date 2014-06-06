@@ -11,11 +11,15 @@
 
 			$search=  $this->input->post('search');
 
+			$isAjax = $this->input->post('isAjax');
+
 			$query = $this->get->getSearch($search);
 
-			json_encode ($query);
-
-			die();
+			if ($isAjax == 1)
+			{
+				echo json_encode ($query);
+				die();
+			}
 		}
 
 	}

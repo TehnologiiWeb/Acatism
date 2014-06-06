@@ -84,9 +84,9 @@
 
 			$this->db->from('temepropuse');
 
-			$query = $this->db->get();
+			$query = $this->db->get();	
 
-			return $query->result();
-	}
+			return $query->result_array();
+		}
 	}
 ?>
