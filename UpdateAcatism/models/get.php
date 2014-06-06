@@ -146,5 +146,76 @@
 				return false;
 			}
 		}
+
+		public function getSearch($search, $tipUser)
+		{
+			$teme = array();
+			$contorTeme = 0;
+
+			$sql = "SELECT id, titlu, description, idProf FROM temepropuse WHERE ((UPPER(titlu) LIKE '%" . $search 
+				. "%') OR (UPPER(description) LIKE '%" . $search . "%')) AND tipTema = " . $tipUser 
+				. " AND id NOT IN (SELECT idTema FROM temealese)";
+			
+			$result = $this->db->query($sql);
+
+			$rez = $result->result_array();
+
+			foreach ($rez as $inreg) 
+			{
+				$sql1 = "SELECT nume FROM profs WHERE id = ". $inreg['idProf'];
+
+				$profs = $this->db->query($sql1);
+				$profs = $profs->result_array();
+				$prof = $profs[0];
+				$teme[$contorTeme] = array(
+					'id' => $inreg['id'], 
+					'titlu' => $inreg['titlu'], 
+					'description' => $inreg['description'], 
+					'nume' => $prof['nume']);
+				$contorTeme += 1;
+			}
+
+			return $teme;
+		}
+
+		public function get_tip_teme($tipUser)
+		{
+			$teme = array();
+			$contorTeme = 0;
+
+			$sql = "SELECT id, titlu, description, idProf FROM temepropuse WHERE tipTema = " . $tipUser 
+			. " AND id NOT IN (SELECT idTema FROM temealese)";
+			$result = $this->db->query($sql);
+
+			$result = $result->result_array();
+
+			foreach ($result as $inreg) 
+			{
+				$sql1 = "SELECT nume FROM profs WHERE id = ". $inreg['idProf'];
+
+				$profs = $this->db->query($sql1);
+				$profs = $profs->result_array();
+				$prof = $profs[0];
+
+				$teme[$contorTeme] = array(
+					'id' => $inreg['id'], 
+					'titlu' => $inreg['titlu'], 
+					'description' => $inreg['description'], 
+					'numeProf' => $prof['nume']);
+				$contorTeme += 1;
+			}
+			return $teme;
+		}
+
+		public function get_infoStud($idUser)
+		{
+			$sql = "SELECT * FROM students WHERE id = " . $idUser;
+			$result = $this->db->query($sql);
+
+			$users = $result->result_array();
+			$user = $users[0];
+
+			return $user; 
+		}
 	}
 ?>

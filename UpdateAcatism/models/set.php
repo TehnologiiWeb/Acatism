@@ -132,5 +132,15 @@
 				}
 			}
 		}
+
+		public function aplica($idStud, $idTema)
+		{
+			$aplicare = array(
+				'idStud' => $idStud, 
+				'idTema' => $idTema
+			);
+
+			return $this->db->insert("aplicari", $aplicare);
+		}
 	}
 ?>
