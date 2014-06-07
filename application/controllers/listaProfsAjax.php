@@ -1,17 +1,23 @@
 <?php
 	
-	class ListaProfs extends CI_Controller
+	class ListaProfsAjax extends CI_Controller
 	{
 		public function index()
 		{
 			$user = $this->session->userdata('user');
+
 			$rezultatTeme = array();
 			$contorTeme = 0;
 
 			if ($user)
 			{
 				$this->load->model('get');
-				$profesori = $this->get->get_allProfs();
+
+				$search= $this->input->post('search');
+
+				$isAjax = $this->input->post('isAjax');
+
+				$profesori = $this->get->getSearchProfs($search);
 
 				if ($profesori != false)
 				{
@@ -22,8 +28,6 @@
 						$contorLucrari = 0;
 
 						$teme = $this->get->get_temeProf($prof['id']);
-
-						//print_r($teme);
 
 						if ($teme != false)
 						{
@@ -39,8 +43,7 @@
 								$lucrare = array(
 									'titlu' => $tema['titlu'],
 									'tipTema' => $tema['tipTema'],
-									'disp' => $disp
-									);
+									'disp' => $disp);
 
 								$lucrari[$contorLucrari] = $lucrare;
 								$contorLucrari += 1;	
@@ -59,11 +62,15 @@
 				else
 					$rezultatTeme = "Nu exista niciun profesor momentan!";
 
-				$data['temeProfesori'] = $rezultatTeme;
-				$this->load->view('listaProfs', $data);
-			}
-			else
-				redirect(base_url('login'));
+				if ($isAjax == 1)
+				{
+					echo json_encode ($rezultatTeme);
+					die();
+				}
+
+			}	
+			else 
+				redirect(base_url('login'));	
 		}
 	}
 ?>

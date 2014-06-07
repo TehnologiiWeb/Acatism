@@ -28,33 +28,46 @@ $(document).ready(function () {
 
                 var obj = $.parseJSON(response);
 
+
                 if(obj.length > 0){
 
                     try{
 
                         var items=[];   
 
-                        items.push('<tr><th>Nume Prenume</th><th></th></tr>');
+                        str = '<tr><th>Nume Prenume</th><th></th></tr>';
 
                         $.each(obj, function(i,val){   
 
-                            items.push('<tr class="odd"><td>' + val.numeProf + '</td>' + '<td><div class="arrow"/></td></tr><tr><td colspan="3"><h4>Lista temelor aferente acestui profesor</h4>');
-                            items.push('<ul>');
-                            $.each(val.teme, function(i, homewrk){
-                                items.push('<li>' + homewrk.titlu + '</li><ul>');
-                                if (homewrk.tipTema == 0) {
-                                    items.push('<li>Tema de licenta</li>');
-                                } else{
-                                    items.push('<li>Tema de masterat</li>');
-                                };
-                                if (homewrk.disp == 0) {
-                                    items.push('<li>Tema disponibila</li>');
-                                } else{
-                                    items.push('<li>Tema indisponibila</li>');
-                                };
-                            });
+                            // items.push();
+                            str += '<tr class="odd"><td>' + val.numeProf + '</td>' + '<td><div class="arrow"/></td></tr><tr><td colspan="3"><h4>Lista temelor aferente acestui profesor</h4><ul>';
+                            if ($.isArray(val.teme)) {
 
-                            items.push('</ul></td></tr>');
+                                $.each(val.teme, function(i, homewrk){
+                                    str += '<li>' + homewrk.titlu + '</li><ul>';
+                                    if (homewrk.tipTema == 0) {
+                                        str += '<li>Tema de licenta</li>';
+                                    } else{
+                                        str += '<li>Tema de masterat</li>';
+                                    };
+                                    if (homewrk.disp == 0) {
+                                        str += '<li>Tema disponibila</li></ul>';
+                                    } else{
+                                        str += '<li>Tema indisponibila</li></ul>';
+                                    };
+
+                                });
+
+                                
+                            }
+                            else
+                            {
+                                str += 'Acest profesor nu are nicio tema asociata!';
+                            }
+                            
+                            str += '</ul></td></tr>';
+
+                            items.push(str);
 
                             console.log(items);
 
@@ -74,7 +87,7 @@ $(document).ready(function () {
                 
             },
             error: function(){                      
-                alert('Error while request..');
+                alert('Error while request...');
             }
         });
         }
