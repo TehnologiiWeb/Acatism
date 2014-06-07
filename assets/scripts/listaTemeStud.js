@@ -1,4 +1,5 @@
 $(document).ready(function () {
+
     $.fn.jExpand = function(){
         var element = this;
 
@@ -14,31 +15,64 @@ $(document).ready(function () {
 
     $('#tableList').jExpand();
 
-    $('#search').keyup(function(){
-        if($(this).val().length>3){
+    $('.applyBtn').click(function(){
+
         $.ajax({
             type: 'post',
-            url: 'http://localhost/Acatism/listaTemeStud',
+            url: 'http://localhost/Acatism/listaTemeStud/aplica',
+            cache: false,
+            data : { 'idTema' : $(this).attr('value') },
+            success: function(response){
+                alert(response);
+            },
+            error: function() {
+                 alert('Error while request..');
+            }
+
+        });
+
+        return false;
+    });
+
+    $('#search').keyup(function(){
+        if($(this).val().length>1){
+
+        $.ajax({
+            type: 'post',
+            url: 'http://localhost/Acatism/listaTemeAjax',
             cache: false,     
             data: { 'search' : $(this).val(), isAjax: 1 },
             success: function(response){
-                $('#finalResult').html('');
+                $('#tableList').html('');
 
                 var obj = $.parseJSON(response);
 
-                if(obj.length>0){
+                if(obj.length > 0){
+
                     try{
+
                         var items=[];   
+
+                        items.push('<tr><th>Titlul lucrarii</th><th>Profesor indrumator</th><th></th></tr>');
+
                         $.each(obj, function(i,val){   
-                            console.log(val);                                         
-                            items.push($('<li/>').text(val.titlu));
+
+                            items.push('<tr class="odd"><td>' + val.titlu + '</td>' + '<td>' + val.nume + '</td><td><div class="arrow"/></td></tr><tr><td colspan="3"><h4>Descriere proiect</h4><p>'+ val.description +  '</p><button class="applyBtn" type="button" value="'+ val.id +'">Aplica!</button></td></tr>');
+
+                            console.log(items);
+
                         }); 
-                        $('#finalResult').append.apply($('#finalResult'), items);
-                    }catch(e) {     
+                        $('#tableList').replaceWith('<table id="tableList"></table>');
+                        $('#tableList').append(items);
+                        $('#tableList').jExpand();
+
+                    }catch(e) {
+
                         alert('Exception while request..');
+
                     }       
                 }else{
-                    $('#finalResult').html($('<li/>').text('No Data Found'));       
+                    $('#tableList').html($('<table id="tableList"></table>').text('No Data Found'));       
                 }       
                 
             },

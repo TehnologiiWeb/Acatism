@@ -1,27 +1,72 @@
 <?php
+
 	class ListaTemeStud extends CI_Controller {
 
-		public function index() {
-
+		public function index() 
+		{
 			$user = $this->session->userdata('user');
-			$this->load->view('listaTemeStud');
 
-
-			$this->load->model('get');
-
-			$search=  $this->input->post('search');
-
-			$isAjax = $this->input->post('isAjax');
-
-			$query = $this->get->getSearch($search);
-
-			if ($isAjax == 1)
+			if ($user)
 			{
-				echo json_encode ($query);
-				die();
+				$this->load->model('get');
+				$teme = $this->get->get_tip_teme($user['type']);
+				$data = array('teme' => $teme);
+
+				$this->load->view('ListaTemeStud', $data);
 			}
+			else
+				redirect(base_url('login'));
 		}
 
-	}
+		public function aplica()
+		{
+			//de facut AJAX
+			//$idTema = urldecode($_GET['tema']);
+			$idTema = $this->input->post('idTema');
+			$user = $this->session->userdata('user');
 
+			if ($user)
+			{
+				$this->load->model('get');
+				$infoTema = $this->get->get_profesor_tema($user);
+
+				// daca nu are nicio tema atribuita
+				if ($infoTema == FALSE)
+				{
+					$existaApp = $this->get->application_exist($user['id']);
+
+					//daca nu a mai aplicat la alta tema
+					if ($existaApp == false)
+					{						
+
+						$tema = $this->get->get_infoTema($idTema);
+						$numeTema = $tema['titlu'];
+						$idProf = $tema['idProf'];
+						$emailProf = $this->get->get_emailProf($idProf);
+
+						$student = $this->get->get_infoStud($user['id']);
+						$numeStud = $student['nume'];
+
+						$this->load->model('set');
+						$this->set->aplica($user['id'], $idTema);
+
+						$this->load->model('sendEmail');
+						$this->sendEmail->sendMail($emailProf, 'Notificare Acatism', 'Studentul ' . $numeStud . ' a aplicat la tema ' . $numeTema . '!');
+
+
+						echo "Ati aplicat cu succes!";
+					}
+					else
+						echo "Ati aplicat deja la o alta tema!";
+				}
+				else
+				{
+					echo "Sunteti deja inregistrat la o tema!";
+				}
+
+			}
+			else
+				redirect(base_url('login'));
+		}
+	}
 ?>

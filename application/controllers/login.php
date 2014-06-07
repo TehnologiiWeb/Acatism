@@ -22,7 +22,13 @@
 					{
 						$this->session->set_userdata('user', $user);
 	
-						redirect(base_url('myProfile'));
+						if ($user['type'] == 0)
+						{
+							redirect(base_url('myProfileStudent'));
+						}
+						elseif ($user['type'] == 1) {
+							redirect(base_url('myProfileProfesor'));
+						}
 					}
 					else {
 						$this->load->view('login');
@@ -35,8 +41,19 @@
 			}
 			else
 			{
-				redirect(base_url('myProfile'));
+				if ($user['type'] == 0)
+				{
+					//$dataView = $this->homePage_Stud();
+					redirect(base_url('myProfileStudent'));
+				}
+				elseif ($user['type'] == 1)
+					redirect(base_url('myProfileProfesor'));
 			}
 		}
+
+		//public function homePage_Stud()
+		//{
+
+		//}
 	}
 ?>

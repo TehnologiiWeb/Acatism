@@ -39,136 +39,53 @@
 
                 <article id="continut">
 
-                    
-                    <div id="container">
-                        <form method="post" action="<?php echo base_url('listaTemeStud')?>">
-                            <input type="text" name="search" id="search" />
-                            <ul id="finalResult"></ul>
-                        </form>
-                    </div>
 
                     <legend id="title">
                         Lista temelor propuse
                     </legend>
-                    <!--Tabel lista temelor pentru studenti-->
+                    
+                    <div id="container">
+                        <input type="text" name="search" id="search" />                            
+                    </div>
+
                     <table id="tableList">
                         <tr>
                             <th>Titlul lucrarii</th>
                             <th>Profesor indrumator</th>
                             <th></th>
                         </tr>
-                        <tr>
-                            <td>Criptografie in bazele de date</td>        
-                            <td>Cosmin Varlan</td>
-                            <td><div class="arrow"></div></td>
-                        </tr>
-                        <tr>
-                            <td colspan="3">
-                                <h4>
-                                    Descriere proiect
-                                </h4>
-                                <p>
-                                    Cel mai tare proiect ever. Android smecher 2014.Cel mai tare proiect ever. Android smecher 2014.Cel mai tare proiect ever. Android smecher 2014.Cel mai tare proiect ever. Android smecher 2014.Cel mai tare proiect ever. Android smecher 2014.
-                                    Cel mai tare proiect ever. Android smecher 2014.Cel mai tare proiect ever. Android smecher 2014.Cel mai tare proiect ever. Android smecher 2014.
-                                    Cel mai tare proiect ever. Android smecher 2014.Cel mai tare proiect ever. Android smecher 2014.Cel mai tare proiect ever. Android smecher 2014.
-                                    Cel mai tare proiect ever. Android smecher 2014.Cel mai tare proiect ever. Android smecher 2014.
-                                </p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Criptografie in bazele de date</td>        
-                            <td>Cosmin Varlan</td>
-                            <td><div class="arrow"></div></td>
-                        </tr>
-                        <tr>
-                            <td colspan="3">
-                                <h4>
-                                    Descriere proiect
-                                </h4>
-                                <p>
-                                    Cel mai tare proiect ever. Android smecher 2014.Cel mai tare proiect ever. Android smecher 2014.Cel mai tare proiect ever. Android smecher 2014.Cel mai tare proiect ever. Android smecher 2014.Cel mai tare proiect ever. Android smecher 2014.
-                                    Cel mai tare proiect ever. Android smecher 2014.Cel mai tare proiect ever. Android smecher 2014.Cel mai tare proiect ever. Android smecher 2014.
-                                    Cel mai tare proiect ever. Android smecher 2014.Cel mai tare proiect ever. Android smecher 2014.Cel mai tare proiect ever. Android smecher 2014.
-                                    Cel mai tare proiect ever. Android smecher 2014.Cel mai tare proiect ever. Android smecher 2014.
-                                </p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Criptografie in bazele de date</td>        
-                            <td>Cosmin Varlan</td>
-                            <td><div class="arrow"></div></td>
-                        </tr>
-                        <tr>
-                            <td colspan="3">
-                                <h4>
-                                    Descriere proiect
-                                </h4>
-                                <p>
-                                    Cel mai tare proiect ever. Android smecher 2014.Cel mai tare proiect ever. Android smecher 2014.Cel mai tare proiect ever. Android smecher 2014.Cel mai tare proiect ever. Android smecher 2014.Cel mai tare proiect ever. Android smecher 2014.
-                                    Cel mai tare proiect ever. Android smecher 2014.Cel mai tare proiect ever. Android smecher 2014.Cel mai tare proiect ever. Android smecher 2014.
-                                    Cel mai tare proiect ever. Android smecher 2014.Cel mai tare proiect ever. Android smecher 2014.Cel mai tare proiect ever. Android smecher 2014.
-                                    Cel mai tare proiect ever. Android smecher 2014.Cel mai tare proiect ever. Android smecher 2014.
-                                </p>
-                            </td>
-                        </tr>
+                            
+                        <?php
 
-                        <tr>
-                            <td>Criptografie in bazele de date</td>        
-                            <td>Cosmin Varlan</td>
-                            <td><div class="arrow"></div></td>
-                        </tr>
-                        <tr>
-                            <td colspan="3">
-                                <h4>
-                                    Descriere proiect
-                                </h4>
-                                <p>
-                                    Cel mai tare proiect ever. Android smecher 2014.Cel mai tare proiect ever. Android smecher 2014.Cel mai tare proiect ever. Android smecher 2014.Cel mai tare proiect ever. Android smecher 2014.Cel mai tare proiect ever. Android smecher 2014.
-                                    Cel mai tare proiect ever. Android smecher 2014.Cel mai tare proiect ever. Android smecher 2014.Cel mai tare proiect ever. Android smecher 2014.
-                                    Cel mai tare proiect ever. Android smecher 2014.Cel mai tare proiect ever. Android smecher 2014.Cel mai tare proiect ever. Android smecher 2014.
-                                    Cel mai tare proiect ever. Android smecher 2014.Cel mai tare proiect ever. Android smecher 2014.
-                                </p>
-                            </td>
-                        </tr>
+                            foreach ($teme as $tema) {
+                                echo '<tr>';
+                                    echo '<td>';
+                                        echo $tema['titlu'];
+                                    echo '</td>';
 
-                        <tr>
-                            <td>Criptografie in bazele de date</td>        
-                            <td>Cosmin Varlan</td>
-                            <td><div class="arrow"></div></td>
-                        </tr>
-                        <tr>
-                            <td colspan="3">
-                                <h4>
-                                    Descriere proiect
-                                </h4>
-                                <p>
-                                    Cel mai tare proiect ever. Android smecher 2014.Cel mai tare proiect ever. Android smecher 2014.Cel mai tare proiect ever. Android smecher 2014.Cel mai tare proiect ever. Android smecher 2014.Cel mai tare proiect ever. Android smecher 2014.
-                                    Cel mai tare proiect ever. Android smecher 2014.Cel mai tare proiect ever. Android smecher 2014.Cel mai tare proiect ever. Android smecher 2014.
-                                    Cel mai tare proiect ever. Android smecher 2014.Cel mai tare proiect ever. Android smecher 2014.Cel mai tare proiect ever. Android smecher 2014.
-                                    Cel mai tare proiect ever. Android smecher 2014.Cel mai tare proiect ever. Android smecher 2014.
-                                </p>
-                            </td>
-                        </tr>
+                                    echo '<td>';
+                                        echo $tema['numeProf'];
+                                    echo '</td>';
+                                    echo '<td><div class="arrow"/></td>';
+                                echo '</tr>';
+                                echo '<tr>';
+                                    echo '<td colspan="3">';
+                                        echo '<h4>';
+                                        echo    'Descriere proiect';
+                                        echo '</h4>';
 
-                        <tr>
-                            <td>Criptografie in bazele de date</td>        
-                            <td>Cosmin Varlan</td>
-                            <td><div class="arrow"></div></td>
-                        </tr>
-                        <tr>
-                            <td colspan="3">
-                                <h4>
-                                    Descriere proiect
-                                </h4>
-                                <p>
-                                    Cel mai tare proiect ever. Android smecher 2014.Cel mai tare proiect ever. Android smecher 2014.Cel mai tare proiect ever. Android smecher 2014.Cel mai tare proiect ever. Android smecher 2014.Cel mai tare proiect ever. Android smecher 2014.
-                                    Cel mai tare proiect ever. Android smecher 2014.Cel mai tare proiect ever. Android smecher 2014.Cel mai tare proiect ever. Android smecher 2014.
-                                    Cel mai tare proiect ever. Android smecher 2014.Cel mai tare proiect ever. Android smecher 2014.Cel mai tare proiect ever. Android smecher 2014.
-                                    Cel mai tare proiect ever. Android smecher 2014.Cel mai tare proiect ever. Android smecher 2014.
-                                </p>
-                            </td>
-                        </tr>
+                                        echo '<p>';
+                                           echo $tema['description'];
+                                        echo '</p>';
 
+                                        echo '<button class="applyBtn" type="button" value="'. $tema['id'] .'">Aplica!</button>';
+
+                                    echo '</td>';
+
+                                echo '</tr>';
+                            }
+
+                        ?>
                     </table>
 
                 </article>

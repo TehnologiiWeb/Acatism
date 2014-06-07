@@ -42,7 +42,8 @@
 							$utilizator = array(
 								'email' => $data['email'],
 								'password' => $data['pass'],
-								'typeID' => $data['tipUser'] );
+								'typeID' => $data['tipUser'],
+								'github' => $data['githubName']);
 							//echo $utilizator['email'];
 							$valRet = $this->db->insert("users", $utilizator);
 
@@ -101,7 +102,8 @@
 							$utilizator = array(
 								'email' => $data['email'],
 								'password' => $data['pass'],
-								'typeID' => $data['tipUser'] );
+								'typeID' => $data['tipUser'],
+								'github' => $data['githubName'] );
 							//echo $utilizator['email'];
 							$valRet = $this->db->insert("users", $utilizator);
 
@@ -129,6 +131,16 @@
 					}
 				}
 			}
+		}
+
+		public function aplica($idStud, $idTema)
+		{
+			$aplicare = array(
+				'idStud' => $idStud, 
+				'idTema' => $idTema
+			);
+
+			return $this->db->insert("aplicari", $aplicare);
 		}
 	}
 ?>
