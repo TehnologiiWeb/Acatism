@@ -1,6 +1,6 @@
 <?php
 
-	require_once 'vendor/autoload.php';
+	//require_once 'vendor/autoload.php';
 
 	class MyProfileStudent extends CI_Controller {
 
@@ -10,55 +10,73 @@
 
 			if ($user) 
 			{
+				$dataView = array();
+
 				// de realizat
 				$this->load->model('get');
 				$tasks = $this->get->get_tasks($user['id']);
 				if ($tasks == FALSE)
-					$tasks = "Nu sunt teme!";
+					$tasks = "Nu aveti niciun task de realizat momentan!";
+				//echo 'Taskuri: ';
 				//print_r($tasks);
 
 				//activitate recenta
 				$data = $this->get->get_profesor_tema($user);
 				if ($data == FALSE)
+				{
 					$commits = "Nu aveti niciun repository!";
+					
+					$dataView['task'] = $tasks;
+					$dataView['commit'] = "Nu s-a efectuat niciun commit pentru acest repository!";
+					$dataView['detalii'] = "Nu aveti nicio tema momentan!";
+					$dataView['feedback'] = "Nu aveti nicio notificare momentan!";
+				}
 				else
 				{
-					//print_r($data);
+					echo 'Data: ';
+					print_r($data);
 					$commits = $this->get_commits($data);
 					if ($commits == FALSE)
 					{
 						$commits = "Nu s-a efectuat niciun commit pentru acestui repository!";	
 					}
-				}
-				//print_r($commits);
+					//echo 'Commits: ';
+					//print_r($commits);
 
-				//detalii proiect in lucru
-				$details = $this->get->get_infoTema($data['tema']['idTema']);
-				$numeProf = $this->get->get_numeProf($data['profesor']['id']);
-				if ($details == FALSE)
-				{
-					$detalii = "Nu aveti nicio tema momentan!";
-				}
-				else
-				{
-					$detalii = array();
-					$detalii['titlu'] = $details['titlu'];
-					$detalii['descriere'] = $details['description'];
-					$detalii['profesor'] = $numeProf;
-				}
-				//print_r($detalii);
+					//detalii proiect in lucru
+					$details = $this->get->get_infoTema($data['tema']['idTema']);
+					$numeProf = $this->get->get_numeProf($data['profesor']['id']);
+					if ($details == FALSE)
+					{
+						$detalii = "Nu aveti nicio tema momentan!";
+					}
+					else
+					{
+						$detalii = array();
+						$detalii['titlu'] = $details['titlu'];
+						$detalii['descriere'] = $details['description'];
+						$detalii['profesor'] = $numeProf;
+					}
+					
+					//echo 'Detalii: ';
+					//print_r($detalii);
 
-				//Feedback de la profesor
-				$issues = $this->get_issues($detalii['titlu'], $data['profesor']['github']);
-				if ($issues == FALSE)
-					$issues = "Nu aveti nicio notificare momentan!";
-				//print_r($issues);
+					//Feedback de la profesor
+					if (is_array($detalii))
+					{
+						$issues = $this->get_issues($detalii['titlu'], $data['profesor']['github']);
+						if ($issues == FALSE)
+							$issues = "Nu aveti nicio notificare momentan!";
+						//echo 'Issues';
+						//print_r($issues);
 
-				$dataView = array();
-				$dataView['task'] = $tasks;
-				$dataView['commit'] = $commits;
-				$dataView['detalii'] = $detalii;
-				$dataView['feedback'] = $issues;
+						$dataView['task'] = $tasks;
+						$dataView['commit'] = $commits;
+						$dataView['detalii'] = $detalii;
+						$dataView['feedback'] = $issues;
+					}
+				}
+				//echo 'Date pt view: ';
 				//print_r($dataView);
 				//$this->load->view('myProfileStudent', $dataView);
 				$this->load->view('myProfileStudent', $dataView);
@@ -68,16 +86,7 @@
 				redirect(base_url('login'));
 			}
 			
-			/*if($user) {
-				$this->load->model('get'); */
-
-				/* am nevoie de informatii din bd despre:
-					-progres
-					-ultimele commituri
-					-detaliile proiectului (descriere cel putin)
-					-feedback de la profesor (trebuie facut cumva)
-				*/
-	}
+		}
 
 		public function get_commits($data)
 		{
