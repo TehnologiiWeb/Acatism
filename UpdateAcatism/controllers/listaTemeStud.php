@@ -11,6 +11,7 @@
 				$this->load->model('get');
 				$teme = $this->get->get_tip_teme($user['type']);
 				$data = array('teme' => $teme);
+				print_r($teme);
 
 				$this->load->view('ListaTemeStud', $data);
 			}
@@ -20,6 +21,7 @@
 
 		public function aplica()
 		{
+			//de facut AJAX
 			//$idTema = urldecode($_GET['tema']);
 			$idTema = $this->input->post('idTema');
 			$user = $this->session->userdata('user');
@@ -29,23 +31,38 @@
 				$this->load->model('get');
 				$infoTema = $this->get->get_profesor_tema($user);
 
+				// daca nu are nicio tema atribuita
 				if ($infoTema == FALSE)
 				{
-					$tema = $this->get->get_infoTema($idTema);
-					$numeTema = $tema['titlu'];
+					$existaApp = $this->get->application_exist($user['id']);
 
-					$student = $this->get->get_infoStud($user['id']);
-					$numeStud = $student['nume'];
+					//daca nu a mai aplicat la alta tema
+					if ($existaApp == false)
+					{						
 
-					$this->load->model('set');
-					$this->set->aplica($user['id'], $idTema);
+						$tema = $this->get->get_infoTema($idTema);
+						$numeTema = $tema['titlu'];
+						$idProf = $tema['idProf'];
+						$emailProf = $this->get->get_emailProf($idProf);
 
-					$this->load->model('sendEmail');
-					$this->sendEmail->sendMail($user['email'], 'Notificare Acatism', 'Studentul ' . $numeStud . ' a aplicat la tema ' . $numeTema . '!');
+						$student = $this->get->get_infoStud($user['id']);
+						$numeStud = $student['nume'];
+
+						$this->load->model('set');
+						$this->set->aplica($user['id'], $idTema);
+
+						$this->load->model('sendEmail');
+						$this->sendEmail->sendMail($emailProf, 'Notificare Acatism', 'Studentul ' . $numeStud . ' a aplicat la tema ' . $numeTema . '!');
+
+
+						echo "Ati aplicat cu succes!";
+					}
+					else
+						echo "Ati aplicat deja la o alta tema!";
 				}
 				else
 				{
-					return "Sunteti deja inregistrat la o tema!";
+					echo "Sunteti deja inregistrat la o tema!";
 				}
 
 			}
