@@ -45,8 +45,15 @@
                 </h4>
                 <nav class="todoList">
                     <ul>
-                        <li><?php echo $ceva; ?></li>
-                        <li>Finish that module (until 02.06.2014, Monday)</li>
+                        <?php
+                            if(!is_array($task)){
+                                echo '<li>'.$task.'</li>';
+                            } else {
+                                foreach ($task as $atr) {
+                                    echo '<li>' . $atr['nume'] . ' (' . $atr['descriere'] . ') pana in data de : '. $atr['deadline']  .'</li>';
+                                }
+                            }
+                        ?>
                     </ul>
                 </nav>
 
@@ -58,8 +65,26 @@
                 </h4>
                 <nav class="activities">
                     <ul>
-                        <li>File X updated on GitHub</li>
-                        <li>File Y updated on GitHub</li>
+                    <?php
+
+                        if (is_array($commit)){
+
+                            foreach ($commit as $atr) {
+                                echo '<li>Userul ' . $atr['committer'] . ' a realizat urmatoarele modificari: ';
+                                echo '<ul>';
+                                echo '<li>Titlu commit : ' . $atr['message'] . '</li>';
+                                foreach ($atr['files'] as $file) {
+                                    echo '<li> '. $file['name'] . '    =>    ' . $file['status'] .'</li>';
+                                }
+
+                                echo '</ul>';
+                            }
+
+                        } else {
+                            echo '<li>' . $commit . '</li>';
+                        }
+
+                    ?>
                     </ul>
                 </nav>
             </section>
@@ -69,7 +94,26 @@
                     Detalii proiect in lucru
                 </h4>
                 <p class="description">
-                    --Descriere proiect--
+                    <?php
+
+                        if(is_array($detalii)){
+
+                            echo '<ul>';
+
+                                echo '<li>Titlu : ' . $detalii['titlu'] . '</li>';
+
+                                echo '<li>Profesor : ' . $detalii['profesor'] . '</li>';
+
+                                echo '<li>Descriere : ' . $detalii['descriere'] . '</li>';
+
+                            echo '</ul>';
+
+                        } else {
+                            echo '<ul>';
+                                echo '<li>' . $detalii . '</li>';
+                            echo '</ul>';
+                        }
+                    ?>
                 </p>
             </section>
 
@@ -78,7 +122,9 @@
                     Feedback de la profesor
                 </h4>
                 <p class="message">
-                    sadddddddd
+                    <?php
+                        print_r($feedback);
+                    ?>
                 </p>
             </section>
     
@@ -89,7 +135,7 @@
                     <a class="slideButton"><b>Editare cont</b></a>
                     </div>
                     <div class="divMeniu">
-                    <a class="slideButton"><b>Delogare</b></a>
+                    <a class="slideButton" href="<?php echo base_url('delogare'); ?>"><b>Delogare</b></a>
                     </div>
                 </div>
             </div>
