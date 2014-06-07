@@ -14,7 +14,14 @@ class ListaTemeAjax extends CI_Controller {
 
 			$isAjax = $this->input->post('isAjax');
 
-			$query = $this->get->getSearch($search, $user['type']);
+			$tipStud = $this->get->get_tipStudent($user['id']);
+
+			if ($tipStud == 'Licenta')
+				$tipStud = 0;
+			else
+				$tipStud = 1;
+
+			$query = $this->get->getSearch($search, $tipStud);
 
 			if ($isAjax == 1)
 			{

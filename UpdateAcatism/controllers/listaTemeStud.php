@@ -9,9 +9,17 @@
 			if ($user)
 			{
 				$this->load->model('get');
-				$teme = $this->get->get_tip_teme($user['type']);
+
+				$tipStud = $this->get->get_tipStudent($user['id']);
+
+				if ($tipStud == 'Licenta')
+					$tipStud = 0;
+				else
+					$tipStud = 1;
+
+				$teme = $this->get->get_tip_teme($tipStud);
 				$data = array('teme' => $teme);
-				print_r($teme);
+				//print_r($teme);
 
 				$this->load->view('ListaTemeStud', $data);
 			}

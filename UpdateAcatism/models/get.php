@@ -284,5 +284,19 @@
 			else
 				return true;
 		}
+
+		public function get_tipStudent($userId)
+		{
+			$sql = "SELECT tipStudii FROM students WHERE id = " . $userId;
+			$result = $this->db->query($sql);
+
+			if ($result->num_rows > 0)
+			{
+				$rez = $result->result_array();
+				return $rez[0]['tipStudii'];
+			}
+			else
+				return false;
+		}
 	}
 ?>
