@@ -94,11 +94,10 @@
                     Detalii proiect in lucru
                 </h4>
                 <p class="description">
+                    <ul>
                     <?php
 
                         if(is_array($detalii)){
-
-                            echo '<ul>';
 
                                 echo '<li>Titlu : ' . $detalii['titlu'] . '</li>';
 
@@ -114,6 +113,7 @@
                             echo '</ul>';
                         }
                     ?>
+                </ul>
                 </p>
             </section>
 
@@ -122,9 +122,25 @@
                     Feedback de la profesor
                 </h4>
                 <p class="message">
+                    <ul>
                     <?php
-                        print_r($feedback);
+
+                        foreach ($feedback as $mess) {
+                            echo '<li>' . $mess['titlu'] . '</li>';
+
+                            echo '<li>' . $mess['autor'] .'</li>';
+
+                            echo '<ul>';
+
+                                echo '<li>' . $mess['data'] . '</li>';
+                                echo '<li>' . $mess['continut'] . '</li>';
+
+                            echo '</ul>';
+
+                        }
+
                     ?>
+                </ul>
                 </p>
             </section>
     
