@@ -298,5 +298,22 @@
 			else
 				return false;
 		}
+
+		public function getSearchProfs($search)
+		{
+			$sql = "SELECT id, nume FROM profs WHERE nume LIKE '%" . $search . "%'";
+			$result = $this->db->query($sql);
+
+			if ($result->num_rows() > 0)
+			{
+				$profs = $result->result_array();
+
+				return $profs;
+			}
+			else
+			{
+				return false;
+			}
+		}
 	}
 ?>
