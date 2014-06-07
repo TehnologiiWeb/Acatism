@@ -1,5 +1,5 @@
 <?php
-	
+
 	class Get extends CI_Model {
 
 		public function login($email, $pass) 
@@ -40,7 +40,7 @@
 
 		public function get_tasks($id)
 		{
-			
+
 			$this->db->where("idStud", $id);
 			$result = $this->db->get("temealese");
 
@@ -155,7 +155,7 @@
 			$sql = "SELECT id, titlu, description, idProf FROM temepropuse WHERE ((UPPER(titlu) LIKE '%" . $search 
 				. "%') OR (UPPER(description) LIKE '%" . $search . "%')) AND tipTema = " . $tipUser 
 				. " AND id NOT IN (SELECT idTema FROM temealese)";
-			
+
 			$result = $this->db->query($sql);
 
 			$rez = $result->result_array();
@@ -244,7 +244,6 @@
 			{
 				$teme = $result->result_array();
 				return $teme;
-
 			}
 			else
 				return false;
@@ -284,6 +283,20 @@
 				return false;
 			else
 				return true;
+		}
+
+		public function get_tipStudent($userId)
+		{
+			$sql = "SELECT tipStudii FROM students WHERE id = " . $userId;
+			$result = $this->db->query($sql);
+
+			if ($result->num_rows > 0)
+			{
+				$rez = $result->result_array();
+				return $rez[0]['tipStudii'];
+			}
+			else
+				return false;
 		}
 	}
 ?>

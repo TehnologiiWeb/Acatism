@@ -38,11 +38,6 @@
 
 
                 <article id="continut">
-
-
-                    <legend id="title">
-                        Lista temelor propuse
-                    </legend>
                     
                     <div id="container">
                         <input type="text" name="search" id="search" />                            
@@ -50,16 +45,16 @@
 
                     <table id="tableList">
                         <tr>
-                            <th>Nume Prenume Profeosr</th>
+                            <th>Nume Prenume</th>
                             <th></th>
                         </tr>
                             
                         <?php
-                            foreach ($temeProfesori as $tema) 
+                            foreach ($temeProfesori as $index) 
                             {
-                                echo '<tr>';
+                                echo '<tr class="odd">';
                                     echo '<td>';
-                                        echo $prof[''];
+                                        echo $index['numeProf'];
                                     echo '</td>';
 
                                     echo '<td><div class="arrow"/></td>';
@@ -67,12 +62,27 @@
                                 echo '<tr>';
                                     echo '<td colspan="3">';
                                         echo '<h4>';
-                                        echo    'Descriere proiect';
+                                        echo    'Lista temelor aferente acestui profesor';
                                         echo '</h4>';
 
-                                        echo '<p>';
-                                           // echo $tema['description'];
-                                        echo '</p>';
+                                        echo '<ul>';
+                                            foreach ($index['teme'] as $tema) 
+                                            {
+                                                echo '<li>' . $tema['titlu'] . '</li>';
+
+                                                echo '<ul>';
+                                                    if ($tema['tipTema'] == 0)
+                                                        echo '<li>Tema de licenta</i>';
+                                                    else
+                                                        echo '<li>Tema de masterat</i>';
+
+                                                    if ($tema['disp'] == 1)
+                                                        echo '<li>Tema disponibila</i>';
+                                                    else
+                                                        echo '<li>Tema indisponibila</li>';
+                                                echo '</ul>';
+                                            }
+                                        echo '</ul>';
 
                                     echo '</td>';
 

@@ -125,18 +125,25 @@
                     <ul>
                     <?php
 
-                        foreach ($feedback as $mess) {
-                            echo '<li>' . $mess['titlu'] . '</li>';
+                        if (is_array($feedback)) 
+                        {
+                            foreach ($feedback as $mess) {
+                                echo '<li>' . $mess['titlu'] . '</li>';
 
-                            echo '<li>' . $mess['autor'] .'</li>';
+                                echo '<li>' . $mess['autor'] .'</li>';
 
-                            echo '<ul>';
+                                echo '<ul>';
 
-                                echo '<li>' . $mess['data'] . '</li>';
-                                echo '<li>' . $mess['continut'] . '</li>';
+                                    echo '<li>' . $mess['data'] . '</li>';
+                                    echo '<li>' . $mess['continut'] . '</li>';
 
-                            echo '</ul>';
+                                echo '</ul>';
 
+                            }
+                        }
+                        else
+                        {
+                            echo '<li>' . $feedback . '</li>';
                         }
 
                     ?>

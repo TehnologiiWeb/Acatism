@@ -1,8 +1,8 @@
 #tableList{
 	border-collapse: collapse;
-	width: 100.2%
+	width: 79.2%;
 }
-#tableList h4{
+#tableList ul{
 	margin: 0px;
 	padding: 0px;
 }
@@ -64,6 +64,7 @@ td : hover{
 	border-radius: 3px;
 	border: 2px solid orange;
 	margin-bottom: 1rem;
+	margin-top: 1rem;
 }
 
 #search{
