@@ -217,5 +217,72 @@
 
 			return $user; 
 		}
+
+		public function get_allProfs()
+		{
+			$sql = "SELECT id, nume FROM profs";
+			$result = $this->db->query($sql);
+
+			if ($result->num_rows() > 0)
+			{
+				$profs = $result->result_array();
+
+				return $profs;
+			}
+			else
+			{
+				return false;
+			}
+		}
+
+		public function get_temeProf($idProf)
+		{
+			$sql = "SELECT id, titlu, tipTema FROM temepropuse WHERE idProf = " . $idProf;
+			$result = $this->db->query($sql);
+
+			if ($result->num_rows() > 0)
+			{
+				$teme = $result->result_array();
+
+			}
+			else
+				return false;
+		}
+
+		public function application_exist($idUser)
+		{
+			$sql = "SELECT * FROM aplicari WHERE idStud = " . $idUser;
+			$result = $this->db->query($sql);
+
+			if ($result->num_rows() > 0)
+				return true;
+			else
+				return false;
+		}
+
+		public function get_emailProf($idProf)
+		{
+			$sql = "SELECT email FROM users WHERE id = ". $idProf;
+			$result = $this->db->query($sql);
+
+			if ($result->num_rows() > 0)
+			{
+				$profs = $result->result_array();
+				return $profs[0]['email'];
+			}
+			else
+				return false;
+		}
+
+		public function disponibilitate_tema($idTema)
+		{
+			$sql = "SELECT id FROM temealese WHERE idTema = " . $idTema;
+			$result = $this->db->query($sql);
+
+			if ($result->num_rows() > 0)
+				return false;
+			else
+				return true;
+		}
 	}
 ?>
