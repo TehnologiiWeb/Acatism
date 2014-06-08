@@ -243,6 +243,7 @@
 			if ($result->num_rows() > 0)
 			{
 				$teme = $result->result_array();
+				
 				return $teme;
 			}
 			else
