@@ -93,62 +93,59 @@
                 <h4 class="summaryTitle">
                     Detalii proiect in lucru
                 </h4>
-                <p class="description">
+                <nav class="description">
                     <ul>
-                    <?php
+                        <?php
 
-                        if(is_array($detalii)){
+                            if(is_array($detalii))
+                            {
 
-                                echo '<li>Titlu : ' . $detalii['titlu'] . '</li>';
+                                    echo '<li>Titlu : ' . $detalii['titlu'] . '</li>';
 
-                                echo '<li>Profesor : ' . $detalii['profesor'] . '</li>';
+                                    echo '<li>Profesor : ' . $detalii['profesor'] . '</li>';
 
-                                echo '<li>Descriere : ' . $detalii['descriere'] . '</li>';
+                                    echo '<li>Descriere : ' . $detalii['descriere'] . '</li>';
 
-                            echo '</ul>';
-
-                        } else {
-                            echo '<ul>';
-                                echo '<li>' . $detalii . '</li>';
-                            echo '</ul>';
-                        }
-                    ?>
-                </ul>
-                </p>
+                            } else {
+                                    echo '<li>' . $detalii . '</li>';
+                            }
+                        ?>
+                    </ul>
+                </nav>
             </section>
 
             <section id="feedbackProf">
                 <h4 class="summaryTitle">
                     Feedback de la profesor
                 </h4>
-                <p class="message">
+                <nav class="message">
                     <ul>
-                    <?php
+                        <?php
 
-                        if (is_array($feedback)) 
-                        {
-                            foreach ($feedback as $mess) {
-                                echo '<li>' . $mess['titlu'] . '</li>';
+                            if (is_array($feedback)) 
+                            {
+                                foreach ($feedback as $mess) {
+                                    echo '<li>' . $mess['titlu'] . '</li>';
 
-                                echo '<li>' . $mess['autor'] .'</li>';
+                                    echo '<li>' . $mess['autor'] .'</li>';
 
-                                echo '<ul>';
+                                    echo '<ul>';
 
-                                    echo '<li>' . $mess['data'] . '</li>';
-                                    echo '<li>' . $mess['continut'] . '</li>';
+                                        echo '<li>' . $mess['data'] . '</li>';
+                                        echo '<li>' . $mess['continut'] . '</li>';
 
-                                echo '</ul>';
+                                    echo '</ul>';
 
+                                }
                             }
-                        }
-                        else
-                        {
-                            echo '<li>' . $feedback . '</li>';
-                        }
+                            else
+                            {
+                                echo '<li>' . $feedback . '</li>';
+                            }
 
-                    ?>
-                </ul>
-                </p>
+                        ?>
+                    </ul>
+                </nav>
             </section>
     
                 </article>

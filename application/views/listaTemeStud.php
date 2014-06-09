@@ -45,6 +45,7 @@
                     </legend>
                     
                     <div id="container">
+                        <label for="search" id="labelSearch">Cauta dupa titlul sau descrierea lucrarii : </label>
                         <input type="text" name="search" id="search" />                            
                     </div>
 
@@ -84,7 +85,6 @@
 
                                 echo '</tr>';
                             }
-
                         ?>
                     </table>
 

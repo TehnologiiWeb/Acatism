@@ -35,7 +35,6 @@ $(document).ready(function () {
     });
 
     $('#search').keyup(function(){
-        if($(this).val().length>1){
 
         $.ajax({
             type: 'post',
@@ -80,7 +79,6 @@ $(document).ready(function () {
                 alert('Error while request..');
             }
         });
-        }
         return false;
       });
 

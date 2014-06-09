@@ -57,17 +57,13 @@ td : hover{
 	background-color: lightyellow;
 	outline: medium none;
 	padding: 8px;
-	width: 300px;
+	width: 80%;
 	border-radius: 2px;
 	-moz-border-radius: 3px;
 	-webkit-border-radius: 3px;
 	border-radius: 3px;
 	border: 2px solid orange;
 	margin-bottom: 1rem;
-}
-
-#search{
-	font-size: 1.2rem;
 }
 
 #container ul {
@@ -87,6 +83,17 @@ td : hover{
 }
 
 input#search {
-	width: 100%;
+	width: 66%;
 	height: 2rem;
+	display: inline-block;
+	font-size: 1.2rem;
+}
+
+label#labelSearch {
+	display: inline-block;
+	text-align: left;
+	width: 33%; 
+	color: orange;
+	font-family: "Goudy Old Style", Garamond, "Big Caslon", "Times New Roman", serif;
+	font-size: 1.2rem;
 }

@@ -16,7 +16,7 @@ $(document).ready(function () {
     $('#tableList').jExpand();
 
     $('#search').keyup(function(){
-        if($(this).val().length>1){
+        // if($(this).val().length>1){
 
         $.ajax({
             type: 'post',
@@ -57,8 +57,6 @@ $(document).ready(function () {
                                     };
 
                                 });
-
-                                
                             }
                             else
                             {
@@ -81,7 +79,7 @@ $(document).ready(function () {
                         alert('Exception while request..');
 
                     }       
-                }else{
+                } else{
                     $('#tableList').html($('<table id="tableList"></table>').text('No Data Found'));       
                 }       
                 
@@ -90,7 +88,7 @@ $(document).ready(function () {
                 alert('Error while request...');
             }
         });
-        }
+        // }
         return false;
       });
 
