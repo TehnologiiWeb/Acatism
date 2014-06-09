@@ -142,5 +142,33 @@
 
 			return $this->db->insert("aplicari", $aplicare);
 		}
+
+		public function editStud($data) 
+		{ 
+			print_r($data);
+			$data1 = array( 
+				'email' => $data['email'], 
+				'password' => $data['pass'], 
+				'github' => $data['git'] 
+				); 
+
+			$this->db->where('id', $data['id']); 
+			$this->db->update('users', $data1);
+
+			if ($data['tipStudii'] == 'Student')
+				$data['tipStudii'] = 'Licenta';
+			else
+				$data['tipStudii'] = 'Master';
+
+			$data2 = array(
+				'nume' => $data['nume'],
+				'anStudiu' => $data['anStudiu'],
+				'grupa' => $data['grupa'],
+				'tipStudii' => $data['tipStudii']
+				); 
+
+			$this->db->where('id', $data['id']); 
+			$this->db->update('students', $data2); 
+		}
 	}
 ?>
