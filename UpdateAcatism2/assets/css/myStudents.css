@@ -1,0 +1,101 @@
+#continut
+{
+	width: 65%;
+	position: absolute;
+	min-height: 40%;
+	margin-left: 16%;
+}
+
+.proiecte
+{
+	width: 100%;
+	min-height: 10%;
+	position: absolute;
+	border-radius:10px;
+	//background-color: rgb(167,208,245);
+	background-color: rgb(232,243,253);
+	margin-top: 2%;
+	border: 3px solid white;// rgb(13,81,119);
+	margin-left: 0%;
+}
+
+.titlul
+{
+	margin: 0 auto;
+	//color: rgb(153,6,17);
+	color: rgb(40,142,233);
+	border-bottom: 1px dashed gray;
+	padding-left: 1%;
+	padding: 1%;
+	clear: both;
+}
+.check
+{
+	width: 2%;
+	float: right;
+	margin-right: 3%;
+	padding-left: 3%;
+}
+
+#rezolvat
+{
+	margin-left: 1%;
+	background-color: rgb(98,4,12);
+	color: white;
+	float:right;
+	padding: 0px 2px;
+	border-radius: 7px;
+	margin-right: 1%;
+}
+
+.text
+{
+	margin-left: 1%;
+	color: rgb(13,81,119);
+	margin-bottom: -1%;
+}
+
+.final
+{
+	float: right;
+	margin-right: 0.5%;
+	border: 1px solid white;
+	color: white;
+	background-color: rgb(98,156,236);
+	border-radius: 3px;
+}
+.editare
+{
+	float: right;
+	width: 15%;
+	border: 1px solid white;
+	color: white;
+	background-color: rgb(98,156,236);
+}
+
+.editare1
+{
+	float: right;
+	width: 15%;
+	border: 1px solid white;
+	color: white;
+	background-color: rgb(98,156,236);
+}
+.iData
+{
+	float: right;
+	width: 15%;
+	border:none;
+	margin-right: 1%;
+	color: rgb(13,81,119);
+}
+
+.iDesc
+{
+	border: none;
+	width: 60%;
+	float: right;
+	margin-right: 0.5%;
+	color: rgb(13,81,119);
+}
+

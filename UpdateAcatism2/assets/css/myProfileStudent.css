@@ -1,0 +1,50 @@
+
+.summaryTitle{
+	font-weight: bold;
+    padding-left: 1rem
+}
+#projectInfo {    
+    border-radius: 2.5rem;
+	border-style: solid;
+	border-width: .1rem;
+	margin-bottom: 1rem; 
+    background-color: rgb(40,142,223);
+}
+
+.description{
+    font-size: 1rem;
+    padding-left: 2rem
+}
+
+#milestones {
+    border-radius: 2.5rem;
+	border-style: solid;
+	border-width: .1rem;
+	margin-bottom: 1rem; 
+    background-color: rgb(40,142,223);
+}
+
+#feedbackProf {    
+    border-radius: 2.5rem;
+	border-style: solid;
+	border-width: .1rem;
+	margin-bottom: 1rem; 
+    background-color: rgb(40,142,223);
+}
+
+.message {    
+    padding-left: 2rem
+}
+
+#recentActivity {
+    border-radius: 2.5rem;
+	border-style: solid;
+	border-width: .1rem;
+	margin-bottom: 1rem; 
+    background-color: rgb(40,142,223);
+}
+
+.activities {   
+    font-size: 1rem;
+}
+
