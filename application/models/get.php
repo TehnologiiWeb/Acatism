@@ -315,5 +315,133 @@
 				return false;
 			}
 		}
+
+		public function myStudents($user)
+		{
+			
+			$contor = 0;
+			
+			$sql = "SELECT idStud, idTema FROM temealese WHERE idProf = ?";
+			$q = $this->db->query($sql, $user['id']);
+
+			if ($q->num_rows() > 0)
+			{
+				foreach ($q->result() as $row)
+				{
+					$idStudent = $row->idStud;
+					$idTema = $row->idTema;
+										
+					$sql2 = "SELECT nume FROM students WHERE id = ?";
+					$q2 = $this->db->query($sql2, $idStudent);
+
+					if ($q2->num_rows() > 0)
+					{
+						foreach ($q2->result() as $row2)
+						{
+							$numeStudent = $row2->nume;
+						}
+					}
+					
+					$sql2 = "SELECT titlu FROM temepropuse WHERE id = ?";
+					$q2 = $this->db->query($sql2, $idTema);
+
+					if ($q2->num_rows() > 0)
+					{
+						foreach ($q2->result() as $row2)
+						{
+							$numeTema = $row2->titlu;
+						}
+					}
+
+					$contor2 = 0;
+
+					$sql2 = "SELECT id_etapa, descriere, realizare, deadline FROM progres WHERE id_tema = ?";
+					$q2 = $this->db->query($sql2, $idTema);
+
+					if ($q2->num_rows() > 0)
+					{
+						foreach ($q2->result() as $row2)
+						{
+
+							$idEtapa = $row2->id_etapa;
+							$descriere = $row2->descriere;
+							$realizare = $row2->realizare;
+							$deadline = $row2->deadline;
+
+							$sql3 = "SELECT nume FROM etape WHERE id = ?";
+							$q3 = $this->db->query($sql3, $idEtapa);
+
+							if ($q3->num_rows() > 0)
+							{
+								foreach ($q3->result() as $row3)
+								{
+									$numeEtapa = $row3->nume;
+								}
+							}
+
+							$data2[$contor2++] = array(
+													'numeEtapa' => $numeEtapa,
+													'descriere' => $descriere,
+													'stare' => $realizare,
+													'deadline' => $deadline
+													);
+						}
+					}
+
+					
+					$data[$contor++] = array(
+								'numeStudent' => $numeStudent,
+								'idTema' => $idTema,
+								'numeTema' => $numeTema,
+								'etape' => $data2,
+								);
+				}
+			}
+			else
+			{
+				$data = FALSE;
+				return $data;
+			}
+			return $data;
+		}
+
+		public function getAllProjects($user)
+		{
+			$contor = 0;
+
+			$sql = "SELECT id, titlu, description FROM temepropuse WHERE idProf = ?";
+			
+			$q = $this->db->query($sql, $user['id']);
+
+			if ($q->num_rows() > 0)
+			{
+				foreach ($q->result() as $row)
+				{
+					$var = $row->id;
+
+					$this->db->select('count(*) as numberstud');
+					$this->db->from('temealese');
+					$this->db->where('idTema', $var);
+					$query = $this->db->get();
+
+					foreach ($query->result() as $row2) 
+					{
+        				
+        				$data[$contor++] = array(
+								'titlu' => $row->titlu,
+								'descriere' => $row->description,
+								'nrstud' => $row2->numberstud
+								);
+        			}
+				}
+
+			}
+			else
+			{
+				$data = FALSE;
+				return $data;
+			}
+			return $data;
+		}
 	}
 ?>
