@@ -8,8 +8,9 @@
 
 			if ($user)
 			{
-				$data = $this->getFolderContent('', $user);
+				$tree = $this->getFolderContent('', $user);
 
+				$data['arbore'] = $tree;
 				$this->load->view('proiectulMeuStud', $data);
 			}
 			else
@@ -75,13 +76,13 @@
 							$contor += 1;
 						}
 					}
-					$data = array(
+					/*$data = array(
 						'titlu' => $repo,
 						'descriere' => $numeTema['description'],
 						'arbore' => $rezultat
-						);
+						);*/
 
-					return $data;
+					return $rezultat;
 				}
 			}
 			else
