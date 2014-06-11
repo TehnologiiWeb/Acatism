@@ -1,5 +1,6 @@
 $(document).ready(function () {
 
+
     $('#jstree').jstree({
       "core" : {
         "animation" : 0,
@@ -25,8 +26,7 @@ $(document).ready(function () {
         }
       },
       "plugins" : [
-        "contextmenu", "dnd", "search",
-        "state", "types", "wholerow"
+        "search", "types", "wholerow"
       ]
     	});
 
@@ -49,13 +49,24 @@ $(document).ready(function () {
 			return $.trim(str);
 		}).join('/');
 
+
+        function break_lines(v){ //TEXTAREA "#t" VALUE
+
+            var text = v.replace(/\n/gi, "<br>"); //FOR EVERY "LINE" IN THE TEXTAREA, A <br> WILL BE IN HTML
+            $("#text").html(text); //NEW TEXT WILL BE DISPLAYED IN HTML
+        }
+
+        $('#fileContent').replaceWith('<div id="fileContent"></div>');
         $.ajax({
             type: 'post',
             url: 'http://localhost/Acatism/continutFisAjax',
             cache: false,
             data : { 'path' : path, isAjax : 1 },
             success: function(response){
-                alert(response);
+
+                $('#fileContent').replaceWith('<div id="fileContent"></div>');
+                $('#fileContent').append('<p>' + response + '</p>');
+
             },
             error: function() {
                  alert('Error while request...');
@@ -63,16 +74,14 @@ $(document).ready(function () {
 
         });
 
+        $('#path').attr('value', path);
+
 	    $('#event_result2').html('Path: ' + path);
     }); 
 
+    $('#uploadBtn').on('click', function() {
 
-    /*$('button').on('click', function () {
-
-		$('#jstree').jstree(true).select_node('child_node_1');
-		$('#jstree').jstree('select_node', 'child_node_1');
-		$.jstree.reference('#jstree').select_node('child_node_1');
-
-    });*/
+        $('#fileContent').replaceWith($('#uploadForm').html());
+    });
 
 });
