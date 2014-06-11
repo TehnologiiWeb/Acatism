@@ -1,0 +1,38 @@
+#signUp
+{
+	background-color: green;
+	width: 40%;
+	margin-left: 17%;
+	margin-top: 6%;
+	padding: 3%;
+	background-color: white;
+	border-radius: 7px;
+	border: 7px solid rgb(247, 247, 247);
+}
+
+.logLabels
+{
+	color: rgb(13,82,119);
+	margin-bottom: 1%;
+	margin-left: 15%;
+}
+
+.logInputs
+{
+	margin-bottom: 1.5%;
+	width: 50%;
+	height: 20%;
+}
+
+#inreg
+{
+	margin-left: 33%;
+	height: 25%;
+	padding: 1.5%;
+	width: 33%;
+	background-color: rgb(153,217,234);
+	border: none;
+	border-radius: 3px;
+	color: white;
+	font-weight: bold;
+}
