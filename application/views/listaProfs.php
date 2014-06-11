@@ -14,8 +14,7 @@
     <div id="content">
             <script> document.getElementById("content").style.height=screen.height+"px";</script>
             <header>
-                <img class="pozaDreaptaSus" src="<?php echo base_url('assets\images\studenti.png'); ?>">
-                <img class="pozaDreaptaSus" src="<?php echo base_url('assets\images\colt.png'); ?>">
+                
             </header>
             <div id="bara">
                 <div id="username">
@@ -28,17 +27,21 @@
             <div id="cadru">
                 <nav id="meniu">
                     <ul id="butoanee">
+                        <li id="profil" class="butoane">Profilul meu</li>
+                        <li id="proiect" class="butoane">Proiectul meu</li>
                         <li id="profesori"class="butoane">Lista profesori</li>
                         <li id="teme" class="butoane">Lista teme</li>
-                        <li id="proiect" class="butoane">Proiectul meu</li>
-                        <li id="profil" class="butoane">Profilul meu</li>
                     </ul>
-                    <img src="<?php echo base_url('assets\images\colt.png'); ?>" style="width: 100%;">
+                    <img src="<?php echo base_url('assets\images\temp.png'); ?>" id="stil">
                 </nav>
 
 
                 <article id="continut">
-                    
+                    <img class="smallColt4" src="<?php echo base_url('assets\images\smallColt.png'); ?>">
+                    <img class="smallColt5" src="<?php echo base_url('assets\images\smallColt.png'); ?>">
+                    <img class="smallColt6" src="<?php echo base_url('assets\images\smallColt.png'); ?>">
+                    <img class="smallColt7" src="<?php echo base_url('assets\images\smallColt.png'); ?>">
+                    <img class="smallColt8" src="<?php echo base_url('assets\images\smallColt.png'); ?>">
                     <div id="container">
                         <input type="text" name="search" id="search" />
                     </div>
@@ -107,7 +110,6 @@
 </table>
 
 </article>
-<div id="subSlideMeniu"></div>
 <div id="slideMeniu">
 <div class="divMeniu">
 <a class="slideButton"><b>Editare cont</b></a>

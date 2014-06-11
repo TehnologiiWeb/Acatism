@@ -34,8 +34,6 @@
 				}
 				else
 				{
-					echo 'Data: ';
-					print_r($data);
 					$commits = $this->get_commits($data);
 					if ($commits == FALSE)
 					{

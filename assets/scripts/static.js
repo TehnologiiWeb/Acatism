@@ -4,10 +4,10 @@ var indice=0;
 
 function initAll()
 {
-	schimba("#profesori");
-	schimba("#teme");
-	schimba("#proiect");
-	schimba("#profil");
+	//schimba("#profesori");
+	//schimba("#teme");
+	//schimba("#proiect");
+	//schimba("#profil");
 	$("#linie").hide();
 	$("#slideMeniu").hide();
 	$("#subSlideMeniu").hide();

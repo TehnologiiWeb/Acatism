@@ -54,7 +54,6 @@ td : hover{
 }
 
 #container {
-	background-color: lightyellow;
 	outline: medium none;
 	padding: 8px;
 	width: 300px;
@@ -62,7 +61,7 @@ td : hover{
 	-moz-border-radius: 3px;
 	-webkit-border-radius: 3px;
 	border-radius: 3px;
-	border: 2px solid orange;
+	border: 2px solid rgb(13,82,119);
 	margin-bottom: 1rem;
 	margin-top: 1rem;
 }

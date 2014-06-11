@@ -54,15 +54,16 @@ td : hover{
 }
 
 #container {
-	background-color: lightyellow;
+	margin-top: 2%;
+	background-color: white;
 	outline: medium none;
 	padding: 8px;
-	width: 80%;
+	width: 77%;
 	border-radius: 2px;
 	-moz-border-radius: 3px;
 	-webkit-border-radius: 3px;
 	border-radius: 3px;
-	border: 2px solid orange;
+	border: 2px solid rgb(40,142,233);
 	margin-bottom: 1rem;
 }
 
@@ -74,7 +75,6 @@ td : hover{
 
 #container ul , #container li {
 	list-style: none;
-	background-color: lightgray;
 	margin: 1px;
 	padding: 1px;
 	-moz-border-radius: 3px;
@@ -94,6 +94,8 @@ label#labelSearch {
 	text-align: left;
 	width: 33%; 
 	color: orange;
-	font-family: "Goudy Old Style", Garamond, "Big Caslon", "Times New Roman", serif;
-	font-size: 1.2rem;
+	font-weight: bold;
+	color: rgb(13,82,119);
+	//font-family: "Goudy Old Style", Garamond, "Big Caslon", "Times New Roman", serif;
+	//font-size: 1rem;
 }

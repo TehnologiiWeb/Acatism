@@ -21,7 +21,7 @@
 				$data = array('teme' => $teme);
 				//print_r($teme);
 
-				$this->load->view('ListaTemeStud', $data);
+				$this->load->view('listaTemeStud', $data);
 			}
 			else
 				redirect(base_url('login'));
